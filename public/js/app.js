@@ -121,7 +121,14 @@ let app = new Vue({
       this.showCart = false;
     }
   },
-  created(){
-    fetch('collections/lessons').then((res)=>res.json()).then((d) => this.lessons = d )
-  }
+  created() {
+    fetch('http://localhost:3000/collections/lessons')
+    .then((res) => res.json())
+    .then((d) => {this.lessons = d
+  })
+.catch((error)=>{
+  console.error('error from backend',error)
+})
+}
+  
 });
